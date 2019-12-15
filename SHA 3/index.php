@@ -4,7 +4,7 @@ require_once 'SHA3.php';
 if (isset($_POST['hash'])) {
     $file = $_FILES['file']['tmp_name'];
     $h = file_get_contents($file);
-    $code = bin2hex(SHA3::init(SHA3::SHA3_256)->absorb($h)->squeeze());
+    $code = bin2hex(SHA3::init(SHA3::SHA3_512)->absorb($h)->squeeze());
 }
 
 if (isset($_POST['cek'])) {
@@ -12,7 +12,7 @@ if (isset($_POST['cek'])) {
     $h = file_get_contents($file);
     $t = $_POST['t'];
 
-    if (hex2bin($t) === SHA3::init(SHA3::SHA3_256)->absorb($h)->squeeze()) {
+    if (hex2bin($t) === SHA3::init(SHA3::SHA3_512)->absorb($h)->squeeze()) {
         $code = 'File Sesuai!';
     } else {
         $code = 'File tidak sesuai atau sudah dimodifikasi!';
