@@ -34,7 +34,7 @@ if (isset($_POST['cek'])) {
 <body>
     <div class="container">
         <div class="row">
-            <form action="javascript:void(0)" method="post" enctype="multipart/form-data">
+            <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" enctype="multipart/form-data">
                 <div class="col-lg-12">
                     <div class="form-group">
                         <label class="custom-file">
